@@ -21,6 +21,21 @@ var addTolist = function(){
     }
 }
 
+var pascal = function(n){
+    if (n==1){
+	return 1;
+    }
+    n -= 1;
+    var line = [1];
+    var sline = "";
+    for (var i = 0; i < n; i++){
+	line += line[i]*(n-i)/(i+1);
+    }
+    return line;
+}
+
+console.log(pascal(6));
+
 //Change text of h1
 for (var i = 0; i < items.length; i++){
     items[i].addEventListener("mouseover",function(e){
