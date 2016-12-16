@@ -1,7 +1,5 @@
 //JS CODE
 
-//Change text of h1
-
 var items = document.getElementsByTagName('li');
 
 var exclaim = 0;
@@ -23,6 +21,7 @@ var addTolist = function(){
     }
 }
 
+//Change text of h1
 for (var i = 0; i < items.length; i++){
     items[i].addEventListener("mouseover",function(e){
 	document.getElementById("h").innerHTML = this.innerHTML;
@@ -38,4 +37,27 @@ for (var i = 0; i < items.length; i++){
     }
 }
 
+//Fib Sequence
+var fib1Num = 0;
+var fib2Num = 0;
 
+var startFin = function(){
+    fib1Num = 0;
+    fib2Num = 1;
+    var list = document.getElementById("fiblist");
+    console.log(list.key("li").length);
+};
+
+var nextFib = function(){
+    var next = fib1Num + fib2Num;
+    fib1Num = fib2Num;
+    fib2Num = next;
+    addFib(next);
+};
+var addFib = function(x){
+    console.log(x);
+    list = document.getElementById("fiblist");
+    var entry = document.createElement("li");
+    entry.appendChild(document.createTextNode(x));
+    list.appendChild(entry);
+};
