@@ -18,14 +18,20 @@ var addTolist = function(){
     exclaim += 1;
 }
 
-
-
 for (var i = 0; i < items.length; i++){
     items[i].addEventListener("mouseover",function(e){
 	document.getElementById("h").innerHTML = this.innerHTML;
     },false);
-
+    
     items[i].addEventListener("mouseout",function(e){
 	document.getElementById("h").innerHTML = "Hello World!";
     },false);
+
+    //When an item on the list is clicked, remove it from the DOM
+    items[i].onclick = function() {
+	this.parentNode.removeChild(this);
+    }
+    
 }
+
+
