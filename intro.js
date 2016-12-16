@@ -1,6 +1,7 @@
 //JS CODE
 
 //Change text of h1
+
 var items = document.getElementsByTagName('li');
 
 var exclaim = 0;
@@ -16,6 +17,10 @@ var addTolist = function(){
     li.innerHTML = input+exclaims;
     document.getElementById("thelist").appendChild(li);
     exclaim += 1;
+    li.onclick = function() {
+	this.parentNode.removeChild(this);
+	exclaim -= 1;
+    }
 }
 
 for (var i = 0; i < items.length; i++){
@@ -31,7 +36,6 @@ for (var i = 0; i < items.length; i++){
     items[i].onclick = function() {
 	this.parentNode.removeChild(this);
     }
-    
 }
 
 
