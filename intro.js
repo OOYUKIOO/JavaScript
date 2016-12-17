@@ -53,14 +53,22 @@ for (var i = 0; i < items.length; i++){
 }
 
 //Fib Sequence
-var fib1Num = 0;
-var fib2Num = 0;
+var fib1Num;
+var fib2Num;
 
 var startFin = function(){
+    //set first 2 numbers of fib sequence
     fib1Num = 0;
     fib2Num = 1;
     var list = document.getElementById("fiblist");
-    console.log(list.key("li").length);
+    //delete all items
+    while (list.hasChildNodes()){
+	list.removeChild(list.childNodes[0]);
+    };
+    //first fib num
+    var i = document.createElement("li");
+    i.appendChild(document.createTextNode(0));
+    list.appendChild(i);
 };
 
 var nextFib = function(){
@@ -69,8 +77,8 @@ var nextFib = function(){
     fib2Num = next;
     addFib(next);
 };
+
 var addFib = function(x){
-    console.log(x);
     list = document.getElementById("fiblist");
     var entry = document.createElement("li");
     entry.appendChild(document.createTextNode(x));
