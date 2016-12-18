@@ -21,20 +21,42 @@ var addTolist = function(){
     }
 }
 
-var pascal = function(n){
-    if (n==1){
+//Pascal triangle generator
+
+var sFact = function(n){
+    var rval=1;
+    for (var i = 2; i <= n; i++)
+        rval = rval * i;
+    return rval;
+}
+
+var onePascal = function(n, r){
+    if (n==0 && r==0){
 	return 1;
     }
-    n -= 1;
-    var line = [1];
-    var sline = "";
-    for (var i = 0; i < n; i++){
-	line += line[i]*(n-i)/(i+1);
+    return (sFact(n)/(sFact(r)*(sFact(n-r))));
+}
+
+var linePascal = function(n){
+    if (n==0){
+	return onePascal(0,0);
+    }
+    var line = "";
+    for (var i = 0; i <= n; i++){
+	line += ' ' + onePascal(n, i);
     }
     return line;
 }
 
-console.log(pascal(6));
+pcount = 0;
+
+var addPascal = function(){
+    var li = document.createElement("li");
+    var input = linePascal(pcount);
+    pcount += 1;
+    li.innerHTML = input;
+    document.getElementById("pascallist").appendChild(li);
+}
 
 //Change text of h1
 for (var i = 0; i < items.length; i++){
